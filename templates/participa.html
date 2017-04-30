@@ -1,0 +1,374 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<link rel = stylesheet type = text/css href = "{{ url_for('static',filename = 'style.css')}}">
+<style>
+body{
+background-color:black;
+
+}
+div.gallery {
+    border: 3px solid #315b7d;
+    position:relative;
+    border-radius: 2%;
+}
+
+div.gallery:hover {
+    border: 3px solid #315b7d;
+}
+
+
+div.gallery img {
+    width: 100%;
+    height: auto;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.responsive {
+    padding: 4px 6px;
+    float: left;
+    width: 49.99%;
+    
+}
+
+@media only screen and (max-width: 1100px){
+    .responsive {
+        width: 49.99999%;
+        margin: 6px 0;
+    }
+}
+
+@media only screen and (max-width: 500px){
+    .responsive {
+        width: 100%;
+    }
+}
+
+.clearfix:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+.header{
+	width:100%;
+}
+
+.gallery:hover .overlay {
+  opacity: 0.5;
+}
+
+.text {
+	text-align: center;
+  font-family: "Segoe UI",Arial,sans-serif;
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}
+
+
+
+.footer{
+  margin-top:100px;
+	height:25px;
+	font-size: 16px;
+	background-color: #386890 ;
+	color: #386890;
+	width:100%;
+	align-content: center;
+    list-style-type: none;
+    margin: auto;
+    padding: 0;
+    overflow: hidden;
+    text-align: center;
+    font-family: "Segoe UI",Arial,sans-serif;
+    color:white;
+}
+
+
+ul{
+	align-content: center;
+    list-style-type: none;
+    margin: auto;
+    padding: 0;
+    overflow: hidden;
+    background-color: #386890;
+    text-align: center;
+    font-family: "Segoe UI",Arial,sans-serif;
+}
+
+.withborder{
+    border: 2px solid #386890; border-radius: 7.5%; 
+}
+
+li {
+    display:inline-block;
+}
+
+li a, .dropbtn {
+
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 5px 10px;
+    text-decoration: none;
+
+}
+
+
+.withborder:hover, .dropdown:hover .dropbtn {
+    
+    border: 2px solid Aquamarine ; 
+    border-radius: 7.5%;
+
+}
+
+
+
+li.dropdown {
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.Box{
+  color:black;
+  margin:auto;
+  margin-top:15px;
+  margin-bottom:30px;
+
+  width:80%;
+  max-width: 1400px;
+  min-width:900px;
+
+}
+
+.AvsB{
+  font-size: 17px;
+  color:#dbe7f1;
+  margin-bottom:5px;
+  font-family: "Segoe UI",Arial,sans-serif;
+  text-align:center;
+}
+.mainImages{
+  background-color: #386890;
+}
+.mainImage1{
+  border-radius: 3px;
+  margin-left:6px;
+  border: 5px solid #386890; 
+  float:left;
+  width:48.99%;
+  display: inline-block;
+}
+.mainImage2{
+  margin-right:6px;
+  border-radius: 3px;
+  border: 5px solid #386890; 
+  margin-top:0px;
+  float:right;
+  width:48.99%;
+  display: inline-block;
+}
+
+.mainImage1:hover{
+   border: 5px solid GreenYellow ;
+}
+.mainImage2:hover{
+   border: 5px solid GreenYellow ; 
+}
+
+
+.darrerR{
+  font-size: 17px;
+  color:#dbe7f1;
+  margin-top:10px;
+  margin-bottom:5px;
+  font-family: "Segoe UI",Arial,sans-serif;
+  width:900px;
+  text-align:center;
+}
+
+.superContainer{
+  width:850px;
+  height:auto;
+  margin:auto;
+  margin:auto;
+}
+.subBox{
+  border-radius: 5px;
+  background-color:#386890;
+  width:850px;
+  height:auto;
+  margin:auto;
+  display:inline-block;
+  text-align: center;
+}
+.containerX{
+  position: relative;
+  display: inline-block;
+  float:left;
+  width:283.33px;
+  font-size: 17px;
+  color:#dbe7f1;
+  font-family: "Segoe UI",Arial,sans-serif;
+  text-align:center;
+}
+
+.imgSecondary{
+  margin-top:7px;
+  margin-left:7px;
+  margin-right:7px;
+  border: 3px solid #315b7d;
+  width:270px;
+  height:202px;
+  border-radius: 2%;
+  display: inline-block;
+}
+.container {
+  position: relative;
+  display: inline-block;
+  width: 32.33%;
+}
+.overlay {
+    margin-top:7px;
+  margin-left:7px;
+  margin-right:7px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height:202px;
+  width:270px;
+  opacity: 0;
+  transition: .5s ease;
+  background-color: black;
+}
+
+.containerX:hover .overlay {
+  opacity: 0.7;
+}
+.container:hover .overlay {
+  opacity: 0.7;
+}
+</style>
+
+</head>
+	<div class = "header">
+		<div class = "title">Paissatges.cat</div>
+	</div>
+<body>
+
+
+<ul>
+  <li><a class = withborder href="{{url_for('HelloWorld')}}" style = "color:Aquamarine;">COMPETICIÓ</a></li>
+  <li class="dropdown">
+    <a class = withborder href="{{url_for('galeria')}}" class="dropbtn">GALERIA</a>
+    <div class="dropdown-content">
+      <a href="{{url_for('mesVotats')}}">Més Votats</a>
+      <a href="{{url_for('menysVotats')}}">Menys Votats</a>
+      <a href="#">Recents</a>
+    </div>
+  <li><a class = withborder href="#">MAPA</a></li>
+  <li><a class = withborder href="#">PARTICIPA</a></li>
+  <li><a class = withborder href="{{url_for('contacte')}}">CONTACTE</a></li>
+  </li>
+</ul>
+
+
+
+
+
+
+
+<div class = "Box">
+
+    
+
+<ul style = " border: 0px solid; border-top-left-radius: 1em; border-top-right-radius: 1em; padding-top: 2px";   float:unset; >
+   <div class = "AvsB"  background-color: pink;">Clica sobre la fotografia més bonica, en cas d'empat clica aquí.</div>
+</ul>
+       
+    <div class = "mainImages">
+        
+        
+                                <!--<input type = "image" src = ="static/img/{{image2.name}}" alt = "Submit" class = "img2">
+</form>                         -->
+        <form action="{{url_for('HelloWorld')}}" method = 'POST'>
+        <input type = "image" name = 'submit1' value ='{{image1.name}} {{image2.name}}'  class = "mainImage1" src="static/img/{{image1.name}}">
+                                <input type = "image" name = 'submit1' value = '{{image2.name}} {{image1.name}}' class = "mainImage2" src="static/img/{{image2.name}}">
+                                </form>
+ <!--<img class = "img1" src="static/img/{{image2.name}}" alt="This is a screenshot">-->
+
+    </div>
+
+
+    <ul style = "margin-top:0px border: 0px solid; border-bottom-left-radius: 1em; border-bottom-right-radius: 1em;"; float:unset;>
+   <div class = "AvsB">Clica sobre la fotografia més bonica, en cas d'empat clica aquí.</div>
+</ul>
+</div>
+  
+
+    <div class = "superContainer ">
+<div class = "subBox">
+  <div class="containerX">
+    <img class = "imgSecondary" src="static/img/{{lastMatch.winner}}" alt="This is a screenshot">
+    <div class = "overlay">
+            <div class = "text">{{lastMatch.winner}}</div>
+          </div>
+  </div>
+   <div class="containerX">
+    </br></br>Darrer Enfrontament:</br></br> 50% dels votants pensa que girona23 és més bonic que el casa_punxes4</br></br></br></br></br>
+  </div>
+   <div class="containerX">
+    <img class = "imgSecondary" src="static/img/{{lastMatch.loser}}" alt="This is a screenshot">
+    <div class = "overlay"  >
+            <div class = "text">{{lastMatch.loser}}</div>
+    </div>
+  </div>
+  </div>
+  </div>
+    <div style="margin-top:10px"></div>
+<div class="clearfix"></div>
+<ul style = "margin-top:0px"; float:unset;>
+  <li><a href="{{url_for('HelloWorld')}}" >2017 Paissatges.cat</a></li>
+</ul>
+
+<div class="clearfix"></div>
+
+</body>
+
+
+
+</html>
+
+

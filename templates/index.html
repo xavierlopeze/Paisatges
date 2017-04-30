@@ -1,0 +1,68 @@
+<DOCTYPE html>
+<html>
+<head>
+	<link rel = stylesheet type = text/css href = "{{ url_for('static',filename = 'style.css')}}">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<link rel = "stylesheet" type = "text/css" href = "style.css">
+</head>
+	<div class = "header">
+		<div class = "title">Paissatges.cat</div>
+	</div>
+
+	<div class = "mainBox">
+		
+		<div class = "Menu"> 
+
+			<div class = "MenuItemCompeticio" style = "border-bottom:solid 2px; color:White;">COMPETICIÓ</div>
+			<a class = "MenuItemGaleria" href="{{url_for('galeria')}}">GALERIA</a>
+		</div>
+		
+		<div class = "XvsY">{{image1.name}} vs {{image2.name}}</div>
+		<div class = "mainImages">
+				
+				
+                                <!--<input type = "image" src = ="static/img/{{image2.name}}" alt = "Submit" class = "img2">
+</form>                         -->
+				<form action="{{url_for('HelloWorld')}}" method = 'POST'>
+				<input type = "image" name = 'submit1' value ='{{image1.name}} {{image2.name}}'  class = "img1" src="static/img/{{image1.name}}">
+                                <input type = "image" name = 'submit1' value = '{{image2.name}} {{image1.name}}' class = "img2" src="static/img/{{image2.name}}">
+                                </form>
+ <!--<img class = "img1" src="static/img/{{image2.name}}" alt="This is a screenshot">-->
+
+
+
+
+		</div>
+		<div class = informacio>
+			<div class = info1>(més informació)</div>
+			<div class = info2>(més informació)</div>
+		</div>
+
+		<div class = "mainLines">
+			<div class = "line1">Clica sobre la fotografia més bonica.</div>
+			<div class = "line2">En cas d'empat recarrega la pàgina o clica aquí.</div>
+		</div>
+		<div class = "darrerResultat">Darrer Resultat:</div>
+		<div class = "secondaryText"> 50% dels votants pensa que girona23 és més bonic que el casa_punxes4</div>
+
+		<div class = "mainImages">
+				<img class = "img1" src="static/img/{{lastMatch.winner}}" alt="This is a screenshot">
+				<img class = "img2" src="static/img/{{lastMatch.loser}}" alt="This is a screenshot">
+		</div>
+		<div class = informacio>
+			<div class = info1>(més informació)</div>
+			<div class = info2>(més informació)</div>
+		</div>
+	</div>
+	<div class = "footer">
+		2017 Paissatges.cat
+
+{% for i in matches %}
+	<div>
+		<p>winner = {{i.winner}} loser = {{i.loser}} position = {{i.position}} </p>
+	</div>
+{% endfor %}
+	
+	</div>
+	</div>
+</html>
